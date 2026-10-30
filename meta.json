@@ -1,0 +1,11 @@
+{
+  "name": "Cucumber report",
+  "summary": "读 cucumber JSON，按场景统计并发布。",
+  "author": "hummerstudio",
+  "license": "MIT",
+  "tags": [
+    "official-port",
+    "cucumber-reports"
+  ],
+  "homepage": "https://github.com/hummerstudio/jenkins-atom-cucumber-report"
+}

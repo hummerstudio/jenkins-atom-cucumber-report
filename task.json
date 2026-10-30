@@ -1,0 +1,66 @@
+{
+  "atomCode": "cucumber-report",
+  "name": "Cucumber report",
+  "version": "1.0.0",
+  "description": "读 cucumber JSON，按场景统计并发布。",
+  "execution": {
+    "packagePath": "cucumber-report.jar",
+    "language": "java",
+    "target": "$atom_java_path -cp cucumber-report.jar com.jenkinschina.atom.sdk.AtomRunner"
+  },
+  "input": {
+    "pattern": {
+      "label": "JSON glob",
+      "type": "vuex-input",
+      "default": "**/cucumber.json, **/*cucumber*.json, **/target/cucumber-reports/*.json"
+    },
+    "label": {
+      "label": "报告名称",
+      "type": "vuex-input",
+      "default": "Cucumber"
+    },
+    "outputDir": {
+      "label": "HTML 输出目录",
+      "type": "vuex-input",
+      "default": "out/cucumber"
+    },
+    "failOnFailure": {
+      "label": "有失败场景就让这一步失败",
+      "type": "checkbox",
+      "default": "false"
+    },
+    "skipMarkingUnstable": {
+      "label": "不把构建标为 UNSTABLE",
+      "type": "checkbox",
+      "default": "false"
+    }
+  },
+  "output": {
+    "scenarios": {
+      "type": "string",
+      "description": "场景数"
+    },
+    "passed": {
+      "type": "string",
+      "description": "通过"
+    },
+    "failed": {
+      "type": "string",
+      "description": "失败"
+    },
+    "skipped": {
+      "type": "string",
+      "description": "跳过"
+    },
+    "report": {
+      "type": "report",
+      "description": "构建页内嵌报告"
+    }
+  },
+  "x-jenkins": {
+    "protocol": "jenkins-1",
+    "requires": {
+      "runner": ">=0.4.0"
+    }
+  }
+}
