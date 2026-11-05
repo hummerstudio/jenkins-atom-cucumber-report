@@ -27,5 +27,5 @@ jobs:
         run: ./tools/smoke.sh
       - uses: actions/upload-artifact@v4
         with:
-          name: cucumber-report-atom
-          path: dist/cucumber-report/
+          name: cucumber-atom
+          path: dist/cucumber/

@@ -1,4 +1,4 @@
-package com.jenkinschina.atom.cucumberreport;
+package com.jenkinschina.atom.cucumber;
 
 import com.jenkinschina.atom.sdk.AtomContext;
 import com.jenkinschina.atom.sdk.AtomResult;
@@ -18,12 +18,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * cucumber-reports as an atom: read the JSON cucumber writes and summarise it.
+ * cucumbers as an atom: read the JSON cucumber writes and summarise it.
  *
  * <p>Scenario-level counts are what a build gates on. The plugin also renders the pretty HTML; this one writes a
  * report of its own so the result shows on the build page without the plugin's assets.
  */
-public class CucumberReportAtom implements AtomTask {
+public class CucumberAtom implements AtomTask {
 
     private static final Pattern NAME = Pattern.compile("\"name\"\\s*:\\s*\"([^\"]+)\"");
     private static final Pattern STEP_STATUS = Pattern.compile("\"status\"\\s*:\\s*\"(passed|failed|skipped|undefined|pending|ambiguous)\"");
@@ -32,7 +32,7 @@ public class CucumberReportAtom implements AtomTask {
     @Override
     public AtomResult run(AtomContext context) throws Exception {
         Path workspace = context.getWorkspace();
-        String pattern = context.getParam("pattern", "**/cucumber.json, **/*cucumber*.json, **/target/cucumber-reports/*.json");
+        String pattern = context.getParam("pattern", "**/cucumber.json, **/*cucumber*.json, **/target/cucumbers/*.json");
         String label = context.getParam("label", "Cucumber");
         String outDir = context.getParam("outputDir", "out/cucumber");
         boolean failOnFailure = context.getBooleanParam("failOnFailure", false);

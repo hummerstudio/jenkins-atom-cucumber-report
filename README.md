@@ -1,6 +1,6 @@
-# jenkins-atom-cucumber-report
+# jenkins-atom-cucumber
 
-Cucumber report — port of **cucumber-reports** (8,393) as an atom.
+Cucumber report — port of **cucumbers** (8,393) as an atom.
 
 
 

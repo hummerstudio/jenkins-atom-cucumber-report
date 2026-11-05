@@ -1,18 +1,18 @@
 {
-  "atomCode": "cucumber-report",
+  "atomCode": "cucumber",
   "name": "Cucumber report",
   "version": "1.0.0",
   "description": "读 cucumber JSON，按场景统计并发布。",
   "execution": {
-    "packagePath": "cucumber-report.jar",
+    "packagePath": "cucumber.jar",
     "language": "java",
-    "target": "$atom_java_path -cp cucumber-report.jar com.jenkinschina.atom.sdk.AtomRunner"
+    "target": "$atom_java_path -cp cucumber.jar com.jenkinschina.atom.sdk.AtomRunner"
   },
   "input": {
     "pattern": {
       "label": "JSON glob",
       "type": "vuex-input",
-      "default": "**/cucumber.json, **/*cucumber*.json, **/target/cucumber-reports/*.json"
+      "default": "**/cucumber.json, **/*cucumber*.json, **/target/cucumbers/*.json"
     },
     "label": {
       "label": "报告名称",

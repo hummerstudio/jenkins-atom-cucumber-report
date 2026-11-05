@@ -35,9 +35,9 @@ mkdir -p "$classes/META-INF/services"
 cp src/main/resources/META-INF/services/* "$classes/META-INF/services/"
 ( cd "$sdk" && "$JAR" xf "$SDK_JAR" && rm -rf META-INF/MANIFEST.MF META-INF/services )
 
-rm -rf dist/cucumber-report
-mkdir -p dist/cucumber-report
-"$JAR" --create --file dist/cucumber-report/cucumber-report.jar -C "$classes" . -C "$sdk" .
-cp task.json dist/cucumber-report/
-[ -f meta.json ] && cp meta.json dist/cucumber-report/
-echo "built dist/cucumber-report: $(ls dist/cucumber-report | tr '\n' ' ')"
+rm -rf dist/cucumber
+mkdir -p dist/cucumber
+"$JAR" --create --file dist/cucumber/cucumber.jar -C "$classes" . -C "$sdk" .
+cp task.json dist/cucumber/
+[ -f meta.json ] && cp meta.json dist/cucumber/
+echo "built dist/cucumber: $(ls dist/cucumber | tr '\n' ' ')"
